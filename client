@@ -1,0 +1,15 @@
+### client #####
+import socket
+
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM,0)
+
+s.connect(("127.0.0.1",5000))
+print(":INSTRUCTIONS:>>>>you can send the message one by one'you have to wait till the message come'")
+
+while True:
+    
+    print(s.recv(1024))
+
+    data = "clientr=>" +input("")
+    s.send(bytes(data, encoding='utf-8'))
+ 
