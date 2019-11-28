@@ -1,0 +1,20 @@
+### server#####
+
+import socket
+
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM,0)
+
+s.bind(("127.0.0.1",5000))
+
+s.listen(50)
+
+
+conn ,addr=s.accept()
+print(":INSTRUCTIONS:>>>>you can send the message one by one'you have to wait till the message come'")
+print("got connection",addr)
+
+while True:
+
+    data = "server=>" +input("")
+    conn.send(bytes(data,encoding='utf-8'))
+    print(conn.recv(1024))
